@@ -13,8 +13,8 @@ config = json.load(open('.config.json'))
 firebase = firebase.FirebaseApplication(config['databaseURL'], None)
 auth = tweepy.OAuthHandler(config['consumerKey'], config['consumerSecret'])
 
-default_positweeters = 5
-default_tweets = 5
+default_positweeters = 2
+default_tweets = 2
 
 def get_auth():
     global auth
@@ -99,5 +99,6 @@ def tweet(event, context):
 
     return {
         "message": "Go Serverless v1.0! Your function executed successfully!",
-        "retweeted": retweeted
+        "retweeted": lucky_tweets,
+        "positweeters": lucky_positweeters
     }
