@@ -68,7 +68,7 @@ def generateLists(api):
     IDS = []
 
     for k in keywords:
-        t = api.search(q = k + ' -porn -#porn -nsfw -#nsfw -#nsfl -nsfl -#dick -#amateur -#amateurs -teens -teen', result_type='recent', lang='en', count=100)
+        t = api.search(q = k + '-fuck -#fuck -porn -#porn -nsfw -#nsfw -#nsfl -nsfl -#dick -#amateur -#amateurs -teens -teen filter:safe', result_type='recent', lang='en', count=100)
         IDS.extend(topNTweets(t))
         print len(IDS)
 
