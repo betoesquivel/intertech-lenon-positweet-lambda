@@ -46,7 +46,7 @@ functions:
     timeout: 300
     memory: 1024
     events:
-      - schedule: rate(10 minutes)
+      - schedule: rate(30 minutes)
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events

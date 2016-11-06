@@ -13,8 +13,8 @@ config = json.load(open('.config.json'))
 firebase = firebase.FirebaseApplication(config['databaseURL'], None)
 auth = tweepy.OAuthHandler(config['consumerKey'], config['consumerSecret'])
 
-default_positweeters = 3
-default_tweets = 3
+default_positweeters = 5
+default_tweets = 5
 
 def get_auth():
     global auth
@@ -60,15 +60,15 @@ def topNTweets(tweets, n = 100, posThresh = 0.7):
     return topN
 
 def generateLists(api):
-    keywords = ['#lgbt :)', 'lgbt :)', '#pride :)', 'pride :)', '#trans :)', 'trans :)', '#gay :)', 'gay :)', '#transgender :)', 'transgender :)',
-               '#lesbian :)', 'lesbian :)', '#lgbtrights :)', 'lgbtrights :)', '#equalrights :)', 'equal rights :)', '#gaymarriage :)',
+    keywords = ['#lgbt :)', 'lgbt :)', '#trans :)', 'trans :)', '#gay :)', 'gay :)', '#transgender :)', 'transgender :)',
+                '#lgbtrights :)', 'lgbtrights :)', '#equalrights :)', 'equal rights :)', '#gaymarriage :)',
                 'gay marriage :)', '#comingOut :)', 'coming out :)', '#comingOutDay :)', '#nationalComingOutDay :)', '#lgbtq :)',
                 'lgbtq :)']
 
     IDS = []
 
     for k in keywords:
-        t = api.search(q = k + ' -porn -#porn -nsfw -#nsfw -#nsfl -nsfl -#dick', result_type='recent', lang='en', count=100)
+        t = api.search(q = k + ' -porn -#porn -nsfw -#nsfw -#nsfl -nsfl -#dick -#amateur -#amateurs -teens -teen', result_type='recent', lang='en', count=100)
         IDS.extend(topNTweets(t))
         print len(IDS)
 
