@@ -1,5 +1,7 @@
 # Notebooks
 *.ipynb
+# It is not a lib... but for the notebook
+__init__.py
 
 # Serverless
 .serverless
